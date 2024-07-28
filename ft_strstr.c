@@ -2,39 +2,40 @@
 
 char *ft_strstr(char *str, char *to_find)
 {
-  int i;
-  int j;
-  
-  i = 0;
-  while(str[i] != '\0')
-  {
-    j = 0;
-    if (str[i] = to_find[j]){
-      while(str[i] = to_find[j]){
-        j++;
-        i++;
-      }
-    }
-    
-    
-  }
-  j = 0;
-  while(src[j] != '\0' && j < nb)
-  {
-    dest[i + j] = src[j];
-    j++;
-  }
-  dest[i + j] = '\0';
-  
-  return (dest);
+	int i;
+	int j;
+	
+	i = 0;
+	while(str[i] != '\0')
+	{
+		j = 0;
+		while(str[i + j] == to_find[j] && to_find[j] != '\0')
+		{
+			j++;
+		}
+		if (to_find[j] == '\0')
+		{
+			return (str + i);
+		}
+		i++;
+	}
+	return (NULL);
 }
 
-int main(void)
+int	main(void)
 {
-  char str[] = "OneTwoThree";
-  char to_find[] = "Two";
-  
-  ft_strstr(str, to_find);
-  printf("Concat: %s", dest);
-  return (0);
+	char str[] = "OneTwoThree";
+	char to_find[] = "Two";
+	
+	char *result = ft_strstr(str, to_find);
+
+	if (result != NULL)
+	{
+		printf("Subcadena encontrada: %s", result);
+	}
+	else
+	{
+		printf("Subcadena no encontrada");
+	}
+	return (0);
 }
