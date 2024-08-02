@@ -20,36 +20,26 @@ $> ./rev_print | cat -e
 $
 */
 
-#include <stdio.h>
-
-char	*ft_rev_print(char *str)
+char	*ft_rev_print (char *str)
 {
 	int	i;
-	int	j;
 	char	temp;
-
+	int	strlen;
+	
 	i = 0;
-	while(str[i])
+	while (str[i] != '\0')
 	{
 		i++;
 	}
-	j = 0;
-	while(j < i / 2)
+	strlen = i - 1;
+	i = 0;
+	while (i < (strlen / 2))
 	{
-		temp = str[i - 1];
-		str[i - 1] = str[j];
-		str[j] = temp;
-		j++;
-		i--;
+		temp = str[strlen - i];
+		str[strlen - i] = str[i];
+		str[i] = temp;
+		i++;
 	}
 	return (str);
 }
 
-int	main(void)
-{
-	char str[] = "hello";
-
-	ft_rev_print(str);
-	printf("Reverse: %s", str);
-	return (0);
-}
